@@ -1,0 +1,200 @@
+/* Color Palette: Pink (#ff007f), Aqua (#00f3ff), Black Gradient */
+:root {
+    --bg-black: #050508;
+    --card-bg: rgba(18, 18, 28, 0.7);
+    --pink-neon: #ff007f;
+    --pink-glow: rgba(255, 0, 127, 0.5);
+    --aqua-neon: #00f3ff;
+    --aqua-glow: rgba(0, 243, 255, 0.5);
+    --red-circle: #ff0044;
+    --red-glow: rgba(255, 0, 68, 0.6);
+    --discord-blue: #5865F2;
+    --discord-hover: #4752c4;
+}
+
+body {
+    background: linear-gradient(135deg, #050508 0%, #12001a 50%, #00121f 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Navbar */
+.glass-nav {
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid var(--red-circle);
+    box-shadow: 0 0 10px var(--red-glow);
+}
+
+/* Red Circle Logo Container */
+.red-circle-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid var(--red-circle);
+    box-shadow: 0 0 25px var(--red-glow), inset 0 0 15px var(--red-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    animation: pulse-red 2.5s infinite ease-in-out;
+}
+
+.red-circle-avatar img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(90deg, var(--pink-neon), var(--aqua-neon), var(--pink-neon));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s linear infinite;
+}
+
+/* Cyber Neon Buttons */
+.btn-pink {
+    background: linear-gradient(45deg, var(--pink-neon), #ff2a9d);
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 15px var(--pink-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--pink-neon);
+}
+
+.btn-outline-aqua {
+    border: 2px solid var(--aqua-neon);
+    color: var(--aqua-neon);
+    background: transparent;
+    box-shadow: 0 0 10px var(--aqua-glow);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-aqua:hover {
+    background: var(--aqua-neon);
+    color: #000;
+    box-shadow: 0 0 20px var(--aqua-neon);
+    transform: translateY(-3px);
+}
+
+.btn-discord {
+    background-color: var(--discord-blue);
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-discord:hover {
+    background-color: var(--discord-hover);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--discord-blue);
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--pink-neon);
+    box-shadow: 0 15px 30px var(--pink-glow);
+}
+
+.icon-box-neon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--aqua-neon);
+    box-shadow: 0 0 15px var(--aqua-glow);
+}
+
+/* Hero Floating Animation */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 100px;
+    position: relative;
+}
+
+.floating-anim {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Bottom Right Cookie Banner */
+.cookie-card {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 330px;
+    background: rgba(10, 10, 18, 0.95);
+    border: 1px solid var(--pink-neon);
+    border-radius: 16px;
+    z-index: 9999;
+    box-shadow: 0 0 20px var(--pink-glow);
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.cookie-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Keyframe Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 20px var(--red-glow), inset 0 0 10px var(--red-glow); }
+    50% { box-shadow: 0 0 35px var(--red-circle), inset 0 0 20px var(--red-circle); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
